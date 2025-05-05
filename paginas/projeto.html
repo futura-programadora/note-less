@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../imagens/logo-note-less.png" type="image/x-icon">
+    <link rel="stylesheet" href="../estilos/projeto.css">
+    <title>Criando</title>
+</head>
+
+<body>
+    <section class="container">
+        <header>
+            <button onclick="salvarEsair()"><i class="ri-arrow-left-s-line"></i></button>
+
+            <button onclick="salvar()">Salvar</button>
+
+            <button class="baixar" popovertarget="baixar-arquivo"><i class="ri-download-cloud-2-line"></i></button>
+        </header>
+        <section class="projeto">
+            <p class="nome-do-projeto">
+                Nome do projeto
+            </p>
+            <section class="pagina">
+                <textarea name="pagina" id="pagina"></textarea>
+            </section>
+
+            <button onclick="adicionarPagina()" class="adicionar-pagina">+</button>
+
+            <section class="ferramentas-container">
+                <button popovertarget="minhas-ferramentas" class="ferramentas">
+                    <img src="../imagens/quill-pen-ai-line (1).png" alt="">
+                </button>
+                <section id="minhas-ferramentas" popover>
+                    <button class="botao-funcao" id="direcao-esquerda"><i class="ri-menu-2-line"></i></button>
+
+                    <button class="botao-funcao" id="direcao-centro"><i class="ri-menu-line"></i></button>
+
+                    <button class="botao-funcao" id="direcao-direita"><i class="ri-menu-3-line"></i></button>
+
+                    <select  name="titulos" id="titulos" class="titulos">
+                        <option value="">T</option>
+                        <option value="h1">Título 1 (h1)</option>
+                        <option value="h2">Título 2 (h2)</option>
+                        <option value="h3">Título 3 (h3)</option>
+                        <option value="h4">Título 4 (h4)</option>
+                        <option value="h5">Título 5 (h5)</option>
+                        <option value="h6">Título 6 (h6)</option>
+                    </select>
+                    <button class="botao-funcao" id="lapis-normal" onclick="lapis()" ><i class="ri-pencil-fill"></i></button>
+
+                    <button class="botao-funcao" onclick="bold()" id="bold">
+                        <i class="ri-bold"></i>
+                    </button>
+                </section>
+            </section>
+
+        </section>
+        <section class="basico">
+            <div class="cor-da-letra">
+
+            </div>
+            <section class="marcador">
+                <button><i class="ri-mark-pen-fill"></i></button>
+                <div class="cor-marcador"></div>
+            </section>
+        </section>
+    </section>
+    <script src="../scripts/projeto.js"></script>
+</body>
+</ht

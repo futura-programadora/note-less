@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../imagens/logo-note-less.png" type="image/x-icon">
+    <link rel="stylesheet" href="../estilos/login-cadastro.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <section class="container">
+        <section class="funcionalidades">
+            <section class="funcao">
+                <!--ICONE-->
+                <i class="ri-git-repository-fill"></i>
+                <p>Escreva seus próprios livros e assine eles quando finalizar se quiser.</p>
+            </section>
+            <section class="funcao">
+                <!--ICONE-->
+                <i class="ri-booklet-fill"></i>
+                <p>Use cadernos virtuais e aprimore seus conhecimentos.</p>
+            </section>
+            <section class="funcao">
+                <!--ICONE-->
+                <i class="ri-file-edit-line"></i>
+                <p>Edite seus cadernos e livros quando quiser sem limitações.</p>
+            </section>
+        </section>
+        <section class="formulario">
+            <section class="login-cadastro">
+                <a href="../index.html" class="login">Login</a>
+                <a href="#" class="cadastro">Cadastrar</a>
+            </section>
+            <form class="fomulario-login">
+                <section class="input-formulario">
+                    <!--ICONE-->
+                    <i class="ri-lock-fill"></i>
+                    <input type="text" class="input-senha" required placeholder="Usuário">
+                </section>
+                <section class="input-formulario">
+                    <!--ICONE-->
+                    <i class="ri-user-fill"></i>
+                    <input type="text" class="input-email" required placeholder="Email">
+                </section>
+                <section class="input-formulario">
+                    <!--ICONE-->
+                    <i class="ri-lock-fill"></i>
+                    <input type="text" class="input-senha" required placeholder="Senha">
+                </section>
+            </form>
+            <button onclick="cadastrar()" >Cadastrar</button>
+        </section>
+    </section>
+    <script src="./scripts/cadastro.js"></script>
+</body>
+</html>
