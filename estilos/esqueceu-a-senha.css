@@ -1,0 +1,42 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #fceff9, #e0f7fa);
+    font-family: 'Comic Neue', 'Poppins', sans-serif;
+}
+
+.manutencao {
+    text-align: center;
+    background-color: #ffffffcc;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+.manutencao i {
+    font-size: 50px;
+    color: #3f917f;
+    margin-bottom: 20px;
+}
+
+.manutencao h1 {
+    font-size: 24px;
+    color: #444;
+    margin-top: 10px;
+}
+
+/* Animação fofa */
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
