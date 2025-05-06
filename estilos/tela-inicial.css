@@ -1,18 +1,24 @@
 @charset "UTF-8";
 
 :root {
-    --verde-agua:#97e1d1;
-    --verde-claro:#5adbbf;
-    --verde:#3f917f;
-    --verde-escuro:#224e45;
-    --branco:#f2f2f2;
-    --preto:#151515;
+    --verde-agua: #97e1d1;
+    --verde-claro: #5adbbf;
+    --verde: #3f917f;
+    --verde-escuro: #224e45;
+    --branco: #f2f2f2;
+    --preto: #151515;
 }
 
 * {
     padding: 0px;
     margin: 0px;
     text-decoration: none;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--branco);
+    margin-bottom: 50%;
 }
 
 .perfil {
@@ -33,31 +39,172 @@
 }
 
 .foto-usuario {
-    width: 100px;
-
+    width: 60px;
 }
 
 .navegacao {
+    background-color: white;
     display: flex;
     justify-content: space-between;
-    padding: 8px 40px;
-    position: fixed; /* Fixa a barra na tela */
-    bottom: 0; /* Posiciona no fundo da tela */
-    left: 0; /* Alinha à esquerda */
-    right: 0; /* Alinha à direita */
-    z-index: 1000; /* Garante que fique acima de outros elementos */
-    
+    padding: 5px 40px;
+    position: fixed;
+    /* Fixa a barra na tela */
+    bottom: 0;
+    /* Posiciona no fundo da tela */
+    left: 0;
+    /* Alinha à esquerda */
+    right: 0;
+    /* Alinha à direita */
+    z-index: 1000;
+    /* Garante que fique acima de outros elementos */
+
+    border: 1px solid #3f917fa2;
+
+    .pagina {
+        text-align: center;
+    }
+
+    & a>i {
+        display: flex;
+        color: var(--verde-escuro);
+        font-size: 30px;
+        padding: 10px 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    & a[href="#"] {
+        background-color: #97e1d17e;
+        /* Fundo cinza quando o href é # */
+        border-radius: 10px;
+    }
+
 }
 
-.navegacao a > i {
+.adicionar-projeto {
     display: flex;
-    color: var(--verde-escuro);
-    font-size: 30px;
-    padding: 5px 10px;
+    align-items: center;
+    position: relative;
+    margin-top: auto;
+
+
+
+    & a {
+        font-size: 40px;
+        color: var(--verde);
+        margin-left: auto;
+
+
+        & i {
+            border: 1px solid var(--verde);
+            padding: 10px;
+            border-radius: 50px;
+        }
+
+
+
+    }
+
+
+}
+
+
+.conteudos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    flex-wrap: wrap;
+    padding: 15px;
+    background-color: var(--branco);
+    gap: 15px;
+
+
+    & .livro {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        color: var(--branco);
+        background-color: var(--verde);
+        padding: 15px;
+        width: 100px;
+        height: 150px;
+        border-radius: 5px;
+        text-align: center;
+        margin: auto;
+
+        & h1 {
+            margin-top: 20px;
+
+        }
+
+        & button {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+
+            position: absolute;
+            bottom: 0;
+            padding: 5px;
+            width: 100px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        & button:hover {
+            background-color: #265249;
+            border: 1px solid var(--branco);
+        }
+    }
+}
+
+/*POPOVER*/
+
+.editar-perfil {
+    padding: 20px;
+    background: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 260px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);margin: auto;
+}
+
+/* Aplica display e layout somente quando o popover estiver visível */
+.editar-perfil:popover-open {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     align-items: center;
 }
 
-.navegacao a[href="#"] {
-    background-color: rgba(200, 200, 200, 0.5); /* Fundo cinza quando o href é # */
-    border-radius: 10px;
+.editar-perfil .foto-usuario {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.editar-perfil input {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    color: #333;
+    font-size: 14px;
+}
+
+.editar-perfil input::placeholder {
+    color: #999;
+}
+
+.editar-perfil input:focus {
+    outline: none;
+    border-color: #aaa;
+}
+
+.editar-perfil button {
+    background-color: var(--verde-escuro);
+    border-radius: 5px;
+    color: var(--branco);
+    height: 35px;
+    width: 190px;
 }
