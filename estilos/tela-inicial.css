@@ -12,6 +12,7 @@
 * {
     padding: 0px;
     margin: 0px;
+    text-decoration: none;
 }
 
 .perfil {
@@ -34,4 +35,29 @@
 .foto-usuario {
     width: 100px;
 
+}
+
+.navegacao {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 40px;
+    position: fixed; /* Fixa a barra na tela */
+    bottom: 0; /* Posiciona no fundo da tela */
+    left: 0; /* Alinha à esquerda */
+    right: 0; /* Alinha à direita */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    
+}
+
+.navegacao a > i {
+    display: flex;
+    color: var(--verde-escuro);
+    font-size: 30px;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+.navegacao a[href="#"] {
+    background-color: rgba(200, 200, 200, 0.5); /* Fundo cinza quando o href é # */
+    border-radius: 10px;
 }
