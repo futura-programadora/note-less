@@ -13,9 +13,9 @@
 <body>
     <section class="container">
         <header>
-            <button onclick="salvarEsair()"><i class="ri-arrow-left-s-line"></i></button>
+            <button class="salvar-e-sair" onclick="salvarEsair()"><i class="ri-arrow-left-s-line"></i></button>
 
-            <button onclick="salvar()">Salvar</button>
+            <button class="salvar" onclick="salvar()">Salvar</button>
 
             <button class="baixar" popovertarget="baixar-arquivo"><i class="ri-download-cloud-2-line"></i></button>
         </header>
@@ -27,7 +27,9 @@
                 <textarea name="pagina" id="pagina"></textarea>
             </section>
 
-            <button onclick="adicionarPagina()" class="adicionar-pagina">+</button>
+            <button onclick="adicionarPagina()" class="adicionar-pagina">
+                    <i class="ri-add-line"></i>
+                </button>
 
             <section class="ferramentas-container">
                 <button popovertarget="minhas-ferramentas" class="ferramentas">
@@ -40,7 +42,7 @@
 
                     <button class="botao-funcao" id="direcao-direita"><i class="ri-menu-3-line"></i></button>
 
-                    <select  name="titulos" id="titulos" class="titulos">
+                    <select name="titulos" id="titulos" class="titulos">
                         <option value="">T</option>
                         <option value="h1">Título 1 (h1)</option>
                         <option value="h2">Título 2 (h2)</option>
@@ -49,7 +51,8 @@
                         <option value="h5">Título 5 (h5)</option>
                         <option value="h6">Título 6 (h6)</option>
                     </select>
-                    <button class="botao-funcao" id="lapis-normal" onclick="lapis()" ><i class="ri-pencil-fill"></i></button>
+                    <button class="botao-funcao" id="lapis-normal" onclick="lapis()"><i
+                            class="ri-pencil-fill"></i></button>
 
                     <button class="botao-funcao" onclick="bold()" id="bold">
                         <i class="ri-bold"></i>
@@ -70,4 +73,5 @@
     </section>
     <script src="../scripts/projeto.js"></script>
 </body>
-</ht
+
+</html>

@@ -1,10 +1,219 @@
 @charset "UTF-8";
 
 :root {
-    --verde-agua:#97e1d1;
-    --verde-claro:#5adbbf;
-    --verde:#3f917f;
-    --verde-escuro:#224e45;
-    --branco:#f2f2f2;
-    --preto:#151515;
+    --verde-agua: #97e1d1;
+    --verde-claro: #5adbbf;
+    --verde: #3f917f;
+    --verde-escuro: #224e45;
+    --branco: #f2f2f2;
+    --preto: #151515;
+}
+
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--branco);
+}
+
+.container {
+    margin-bottom: 30%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--branco);
+    padding: 20px 10px;
+    border: 1px solid var(--verde);
+
+    & .salvar-e-sair {
+        background: none;
+        border: none;
+
+        & i {
+            font-size: 30px;
+            color: var(--verde);
+        }
+    }
+
+    & .salvar {
+        padding: 0px 20px;
+        border: none;
+        border-radius: 5px;
+        background: linear-gradient(to right, var(--verde-escuro), var(--verde-claro));
+        color: var(--branco);
+        font-weight: bold;
+    }
+
+    & .salvar:hover {
+        background: linear-gradient(to right, var(--verde), var(--verde-agua));
+        cursor: pointer;
+    }
+
+    & .baixar {
+        padding: 0px 10px;
+        border-radius: 5px;
+        border: 1px solid var(--verde);
+
+        & i {
+            font-size: 25px;
+            color: var(--verde);
+        }
+    }
+
+    & .baixar {
+        cursor: pointer;
+    }
+}
+
+.projeto {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 10px;
+
+    & .nome-do-projeto {
+        margin: 5px 15px;
+        color: var(--verde);
+    }
+
+    & .pagina {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    & .adicionar-pagina {
+        font-size: 30px;
+        border: none;
+
+
+        & i {
+            border: 1px solid var(--verde);
+            padding: 10px;
+            border-radius: 50px;
+            font-size: 40px;
+            color: var(--verde);
+        }
+
+        & i:hover {
+            cursor: pointer;
+        }
+    }
+
+    & textarea {
+        width: 90%;
+        height: 400px;
+        border: 1px solid var(--verde);
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 16px;
+        resize: none;
+        margin: auto;
+    }
+}
+
+.ferramentas-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    & button {
+        margin-left: auto;
+        border: none;
+
+        & img {
+            width: 30px;
+            background-color: var(--verde);
+            padding: 10px;
+
+            border-radius: 50%;
+        }
+    }
+}
+
+#minhas-ferramentas {
+    position: absolute;
+    top: 50px;
+    /* Ajuste conforme necessário */
+    left: 50%;
+    /* Centraliza horizontalmente */
+    transform: translateX(-50%);
+    /* Ajusta a posição para o centro */
+    background-color: var(--branco);
+    border: 1px solid var(--verde);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    /* Para garantir que fique acima de outros elementos */
+    padding: 10px;
+    text-align: center;
+    /* Centraliza o texto */
+}
+
+
+.botao-funcao {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 5px 0;
+    /* Espaçamento entre os botões */
+}
+
+.basico {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--verde);
+    padding: 15px 10px;
+    background-color: white;
+
+    position: fixed;
+    /* Fixa a barra na tela */
+    bottom: 0;
+    /* Posiciona no fundo da tela */
+    left: 0;
+    /* Alinha à esquerda */
+    right: 0;
+    /* Alinha à direita */
+    z-index: 1000;
+    /* Garante que fique acima de outros elementos */
+
+
+    & .cor-da-letra {
+        background-color: black;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+
+    }
+
+    & .marcador {
+        display: flex;
+        justify-content: space-between;
+        width: 40%;
+
+    }
+
+    & .marcador>button {
+        border: none;
+        background: none;
+
+        & i {
+            font-size: 30px;
+        }
+    }
+
+    & .marcador>div {
+        background-color: yellow;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
 }
