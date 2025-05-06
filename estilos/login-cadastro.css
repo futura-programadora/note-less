@@ -62,7 +62,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 15px;
     background-color: var(--verde-escuro);
     height: 60vh;
     color: var(--branco);

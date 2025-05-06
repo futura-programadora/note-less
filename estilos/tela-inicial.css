@@ -9,6 +9,29 @@
     --preto:#151515;
 }
 
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.perfil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--verde-escuro);
+
+    & button {
+        background-color: var(--verde-claro);
+
+        height: 30px;
+        padding: 8px;
+        border: none;
+        border-radius: 10px;
+    }
+}
+
 .foto-usuario {
     width: 100px;
+
 }
