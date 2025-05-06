@@ -8,3 +8,164 @@
     --branco:#f2f2f2;
     --preto:#151515;
 }
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--verde-escuro);
+    
+}
+
+.container {
+    width: 100%;
+    background-color: var(--branco);
+}
+
+.funcionalidades {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--branco);
+    width: 90%;
+    margin: auto;
+    font-size: 16px;
+    height: 40vh;
+    overflow: auto;
+
+
+    & .funcao {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+        word-break: break-word; /* Quebra palavras longas se necessário */
+        white-space: normal; 
+        
+
+        border: 1px solid var(--verde-escuro);
+        border-radius: 10px;
+
+        & i {
+            margin: 0px 10px;
+            color: var(--verde-escuro);
+            font-size: 30px;
+        }
+    }
+}
+
+.formulario {
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: var(--verde-escuro);
+    height: 60vh;
+    color: var(--branco);
+    
+
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+
+    
+
+    & .login-cadastro {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 40px;
+
+        & a {
+            color: var(--branco);
+            text-decoration: none;
+            padding: 5px 0px;
+            width: 100px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        & a[href="#"] {
+            color: var(--verde-claro); /*qualquer cor que quiser */
+            border-bottom: 2px solid var(--verde-claro);
+            font-weight: bold;
+        }
+        
+    }
+
+    & .fomulario-login {
+        display: flex;
+        flex-direction: column;
+        background-color: #5adbbf67;
+        padding: 20px;
+        
+        border-radius: 10px;
+        margin: 20px 0px;
+        height: auto;
+        min-height: 40%;
+
+        & a {
+            text-decoration: none;
+            color: var(--branco);
+            text-align: center;
+            padding: 0px 20px;
+            margin-bottom: 5px;
+        }
+        
+
+        & .input-formulario {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 10px;
+            border-bottom: 2px solid var(--branco);
+            padding: 5px 0px;
+
+            & i {
+                padding: 0px 10px;
+                font-size: 20px;
+            }
+            
+            & input {
+                width: 80%;
+                border: none;
+                background-color: #5adbbf00;
+                color: var(--branco);
+
+                &::placeholder {
+                    color: var(--branco); /* Altere aqui para a cor desejada*/
+                    
+                }
+
+                &:focus {
+                    outline: none; /* Garante que não apareça ao clicar*/
+                    box-shadow: none; /* Caso o navegador use sombra*/
+                }
+            }
+
+        
+
+        }
+    }
+
+    & button {
+        background-color: var(--preto);
+        color: var(--branco);
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 15px 0px;
+    }
+
+    & button:hover {
+        background-color: #383838;
+        border: 1px solid var(--branco);
+    }
+
+}
+
+
