@@ -37,8 +37,8 @@ header {
 .criar-form {
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    width: 90%;
+    margin: 30px;
+    width: 100%;
     
 
     & .titulo {
@@ -49,7 +49,7 @@ header {
         background-color: #5adbbf75;
         border: none;
         padding: 10px;
-        width: 100%;
+        width: 95%;
         margin: auto;
     }
 
