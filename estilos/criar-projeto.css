@@ -1,20 +1,25 @@
 @charset "UTF-8";
 
 :root {
-    --verde-agua:#97e1d1;
-    --verde-claro:#5adbbf;
-    --verde:#3f917f;
-    --verde-escuro:#224e45;
-    --branco:#f2f2f2;
-    --preto:#151515;
+    --verde-agua: #97e1d1;
+    --verde-claro: #5adbbf;
+    --verde: #3f917f;
+    --verde-escuro: #224e45;
+    --branco: #f2f2f2;
+    --preto: #151515;
 }
 
 * {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
     padding: 0px;
     margin: 0px;
     text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--branco);
+    min-height: 100vh;
 }
 
 header {
@@ -26,37 +31,92 @@ header {
     & h1 {
         font-size: 20px;
         color: var(--verde);
+        text-align: center;
+        width: 100%;
+        margin-right: 30px;
     }
 
-    & a > i{
-       font-size: 30px; 
-       color: var(--verde); 
+    & a > i {
+        font-size: 30px;
+        color: var(--verde);
     }
 }
 
 .criar-form {
     display: flex;
     flex-direction: column;
-    margin: 30px;
-    width: 100%;
-    
-
-    & .titulo {
-        width: 90%;
-    }
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+    gap: 20px;
 
     & .titulo > input {
-        background-color: #5adbbf75;
+        background-color: color-mix(in srgb, var(--verde-claro) 60%, white);
         border: none;
-        padding: 10px;
-        width: 95%;
-        margin: auto;
+        padding: 12px;
+        width: 100%;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    & .titulo > input::placeholder {
+        color: var(--verde-escuro);
+    }
+
+    & .titulo > input:focus {
+        outline: none;
     }
 
     & .definicoes {
         display: flex;
         justify-content: space-between;
-        width: 90%;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        & select {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: color-mix(in srgb, var(--verde-claro) 60%, white);
+            font-size: 14px;
+            color: var(--verde-escuro);
+        }
+    }
+
+    & .capa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        & .pre-visualizacao {
+            width: 90px;
+            height: 120px;
+            background-color: var(--verde-claro);
+            border-radius: 10px;
+        }
+
+        & h1 {
+            font-size: 14px;
+            font-weight: normal;
+            color: var(--verde-escuro);
+        }
+    }
+
+    & .criar {
+        width: 100%;
+        padding: 15px;
+        background-color: var(--verde-escuro);
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    & .criar:hover {
+        background-color: #193e37;
     }
 }
-
