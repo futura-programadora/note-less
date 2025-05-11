@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,37 +9,41 @@
     <link rel="stylesheet" href="../estilos/criar-projeto.css">
     <title>Criar projeto</title>
 </head>
+
 <body>
     <section class="container">
         <header>
             <a href="javascript:history.back()"><i class="ri-arrow-left-s-line"></i></a>
-
             <h1>Criar projeto</h1>
         </header>
         <section class="criar-form">
             <section class="titulo">
-                <input type="text" class="titulo" required placeholder="Título">
+                <input type="text" class="titulo" id="titulo" required placeholder="Título">
             </section>
 
             <section class="definicoes">
-                <select name="definicoes" id="definicoes" class="tipo">
+                <select id="definicoes" class="tipo">
                     <option value="">Tipo de projeto</option>
+                    <option value="livro">Livro</option>
+                    <option value="caderno">Caderno</option>
                 </select>
-                <select name="paginas" id="paginas" class="paginas">
-                    <option value="">páginas</option>
+                <select id="paginas" class="paginas">
+                    <option value="">Começa com 1 página</option>
+                    
                 </select>
             </section>
 
             <section class="capa">
-                <input type="file" src="" alt="">
-                <section class="pre-visualizacao">
-
-                </section>
+                <input type="file" id="capa">
+                <section class="pre-visualizacao"></section>
                 <h1>Escolha uma capa se quiser</h1>
             </section>
-            
-            <button class="criar" >Criar</button>
+
+            <button class="criar" id="criarProjetoBtn">Criar</button>
         </section>
+
     </section>
+    <script src="../scripts/criar-projeto.js"></script>
 </body>
+
 </html>
