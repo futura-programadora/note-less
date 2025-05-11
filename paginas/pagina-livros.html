@@ -15,19 +15,27 @@
         <header class="perfil">
             <img class="foto-usuario" src="../imagens/logo-note-less.png" alt="">
             <button popovertarget="editar-perfil">Editar perfil</button>
+            <button popovertarget="sair-da-conta">Sair</button>
+            <div id="sair-da-conta" popover>
+                <p>Deseja deslogar da sua conta?</p>
+                <button onclick="sair()">Sim</button>
+            </div>
             <div class="editar-perfil" id="editar-perfil" popover>
-                <img class="foto-usuario" src="../imagens/logo-note-less.png" alt="">
+                <img class="foto-usuario" src="../imagens/logo-note-less.png" alt=""><br>
+                <p>Email</p>
                 <input type="email" name="email" id="email">
+                <p>Senha</p>
                 <input type="password" name="senha" id="senha">
                 <button onclick="salvarAlteracoes()" >Salvar</button>
             </div>
         </header>
-        <section class="conteudos">
+        <p id="bem-vindo">usuario</p>
+        <section id="projetos-container" class="conteudos">
             <div class="livro">
                 <h1>Título do livro</h1>
                 <button class="editar">Editar</button>
             </div>
-
+            
         </section>
         <section class="adicionar-projeto">
             <a href="./criar-projeto.html">
@@ -45,5 +53,6 @@
             <a href="./pagina-cadernos.html"><i class="ri-booklet-fill"></i></a>
         </section>
     </section>
+    <script src="../scripts/livros.js"></script>
 </body>
 </htm

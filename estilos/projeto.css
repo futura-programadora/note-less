@@ -26,11 +26,17 @@ body {
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: var(--branco);
     padding: 20px 10px;
-    border: 1px solid var(--verde);
+    border-bottom: 1px solid var(--verde); /* muda para border-bottom para ficar mais clean */
 
     & .salvar-e-sair {
         background: none;
@@ -49,6 +55,7 @@ header {
         background: linear-gradient(to right, var(--verde-escuro), var(--verde-claro));
         color: var(--branco);
         font-weight: bold;
+        height: 35px;
     }
 
     & .salvar:hover {
@@ -60,6 +67,7 @@ header {
         padding: 0px 10px;
         border-radius: 5px;
         border: 1px solid var(--verde);
+        height: 35px;
 
         & i {
             font-size: 25px;
@@ -72,10 +80,12 @@ header {
     }
 }
 
+
 .projeto {
     display: flex;
     flex-direction: column;
     padding: 30px 10px;
+    margin-top: 80px;
 
     & .nome-do-projeto {
         margin: 5px 15px;

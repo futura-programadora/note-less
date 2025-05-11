@@ -17,15 +17,13 @@
 
             <button class="salvar" onclick="salvar()">Salvar</button>
 
-            <button class="baixar" popovertarget="baixar-arquivo"><i class="ri-download-cloud-2-line"></i></button>
+            <button onclick="baixarPDF()" class="baixar"><i class="ri-download-cloud-2-line"></i></button>
         </header>
         <section class="projeto">
             <p class="nome-do-projeto">
                 Nome do projeto
             </p>
-            <section class="pagina">
-                <textarea name="pagina" id="pagina"></textarea>
-            </section>
+            <div id="conteudo-paginas"></div>
 
             <button onclick="adicionarPagina()" class="adicionar-pagina">
                     <i class="ri-add-line"></i>
@@ -72,6 +70,7 @@
         </section>
     </section>
     <script src="../scripts/projeto.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 
 </html>
