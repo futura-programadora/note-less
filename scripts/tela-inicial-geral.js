@@ -1,3 +1,4 @@
+alert('Login bem-sucedido!');
 console.log('start js')
 
 const usuario = JSON.parse(localStorage.getItem('usuario'));

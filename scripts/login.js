@@ -18,7 +18,6 @@ async function logar() {
     if (resposta.ok) {
         // Armazena o ID do usuário para usar depois (em projetos, páginas, etc)
         
-        alert('Login bem-sucedido!');
         window.location.href = './paginas/tela-inicial-geral.html'; // redireciona
     } else {
         alert(dados.erro || 'Erro ao logar');
