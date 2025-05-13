@@ -1,55 +1,63 @@
-alert('Login bem-sucedido!');
 console.log('start js')
 
 const usuario = JSON.parse(localStorage.getItem('usuario'));
 console.log(usuario.senha)
 
-document.querySelector('#email').value = usuario.email 
+document.querySelector('#email').value = usuario.email
 document.querySelector('#senha').value = usuario.senha
 document.querySelector('#bem-vindo').textContent = `Bem-vindo ${usuario.nomeUsuario}`
 
 function salvarAlteracoes() {
-    novoEmail = document.querySelector('#email').value;
-    novaSenha = document.querySelector('#senha').value;
+  novoEmail = document.querySelector('#email').value;
+  novaSenha = document.querySelector('#senha').value;
 
-    //confere os campos obrigatorio 
-    if (novoEmail && novaSenha) {
 
-        const usuario = JSON.parse(localStorage.getItem('usuario'));
 
-        //envia os dados para o back end
-        fetch('http://localhost:3001/api/usuarios/', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                id: usuario.id,
-                email: novoEmail,
-                senha: novaSenha
-            })
+  //confere os campos obrigatorio 
+  if (novoEmail && novaSenha) {
 
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao atualizar o usuario no banco de dados');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Usuario atualizado no banco de dados:', data);
-        })
-        .catch(error => {
-            console.error('Erro ao atualizar o usuario no banco de dados:', error);
-            alert('Erro ao salvar as alterações no banco de dados.');
-        });
-    } else {
-        alert('Por favor, preencha os campos de email e senha.');
-    }
+    // Exibir a tela de carregamento
+    document.getElementById('loading-screen').style.display = 'flex';
+
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+    //envia os dados para o back end
+    fetch('http://localhost:3001/api/usuarios/', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: usuario.id,
+        email: novoEmail,
+        senha: novaSenha
+      })
+
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro ao atualizar o usuario no banco de dados');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Esconder a tela de carregamento
+        document.getElementById('loading-screen').style.display = 'none';
+
+        alert('Usuario atualizado com sucesso!')
+        console.log('Usuario atualizado no banco de dados:', data);
+      })
+      .catch(error => {
+        console.error('Erro ao atualizar o usuario no banco de dados:', error);
+        alert('Erro ao salvar as alterações no banco de dados.');
+      });
+  } else {
+    alert('Por favor, preencha os campos de email e senha.');
+  }
 }
 
 function sair() {
-    window.location.href = '../index.html'
+  window.location.href = '../index.html'
 }
 
 // Função para listar os projetos do usuário
@@ -88,7 +96,7 @@ async function listarProjetos() {
       // Se o projeto tiver uma capa, usa-a como fundo
       if (projeto.capa) {
         const isBase64 = projeto.capa.startsWith('data:image');
-        
+
         // Define a capa como fundo
         divProjeto.style.backgroundImage = `url(${projeto.capa})`;
         divProjeto.style.backgroundSize = 'cover';  // Faz a imagem cobrir toda a div
@@ -107,10 +115,10 @@ async function listarProjetos() {
     // Adiciona o evento de clique no botão de editar
     const botoesEditar = document.querySelectorAll('.editar');
     botoesEditar.forEach(botao => {
-      botao.addEventListener('click', function() {
+      botao.addEventListener('click', function () {
         const idProjeto = this.getAttribute('data-id');
         // Salva o ID do projeto no localStorage
-        localStorage.setItem('projetoId',JSON.stringify(idProjeto) );
+        localStorage.setItem('projetoId', JSON.stringify(idProjeto));
         // Redireciona para a página de edição
         window.location.href = '../paginas/projeto.html';
       });

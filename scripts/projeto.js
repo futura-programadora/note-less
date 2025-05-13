@@ -5,7 +5,7 @@ console.log('ID do projeto carregado:', projetoId);
 
 if (!projetoId) {
   alert('Projeto não encontrado!');
-  window.location.href = './paginas/tela-inicial-geral.html';
+  window.location.href = './tela-inicial-geral.html';
 }
 
 async function baixarPDF() {

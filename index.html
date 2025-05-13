@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,15 @@
     <link rel="stylesheet" href="./estilos/login-cadastro.css">
     <title>Login</title>
 </head>
+
 <body>
     <section class="container">
+
+        <!-- Tela de Carregamento -->
+        <div id="loading-screen" class="loading-screen">
+            <div class="loader"></div>
+        </div>
+
         <section class="funcionalidades">
             <section class="funcao">
                 <!--ICONE-->
@@ -45,9 +53,10 @@
                 </section>
                 <a href="./paginas/recuperar-senha.html">Esqueceu a senha?</a>
             </form>
-            <button onclick="logar()" >Logar</button>
+            <button onclick="logar()">Logar</button>
         </section>
     </section>
     <script src="./scripts/login.js"></script>
 </body>
+
 </html>
