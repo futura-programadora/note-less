@@ -11,15 +11,27 @@ if (usuario) {
 const inputCapa = document.getElementById('capa');
 const previewContainer = document.querySelector('.pre-visualizacao');
 
-// Mostrar pré-visualização da imagem
+// Caminho para a capa padrão (PNG)
+const capaPadrao = './imagens/capa.png';
+
+// Mostrar pré-visualização da imagem ou a capa padrão se não houver capa
 inputCapa.addEventListener('change', () => {
     const file = inputCapa.files[0];
-    previewContainer.innerHTML = '';
+    previewContainer.innerHTML = ''; // Limpar conteúdo existente
 
     if (file) {
+        // Se houver um arquivo de imagem, criar o elemento <img> para pré-visualização
         const img = document.createElement('img');
         img.src = URL.createObjectURL(file);
         img.alt = 'Pré-visualização da capa';
+        img.style.maxWidth = '100%';
+        img.style.borderRadius = '8px';
+        previewContainer.appendChild(img);
+    } else {
+        // Caso não haja imagem, definir o fundo como a capa padrão (PNG)
+        const img = document.createElement('img');
+        img.src = capaPadrao; // Usando a imagem padrão
+        img.alt = 'Capa padrão';
         img.style.maxWidth = '100%';
         img.style.borderRadius = '8px';
         previewContainer.appendChild(img);
@@ -59,13 +71,10 @@ async function criarProjeto() {
         // Esconder a tela de carregamento
         document.getElementById('loading-screen').style.display = 'none';
 
-        
         const resultado = await response.json();
         console.log('Projeto criado:', resultado);
         alert('Projeto criado com sucesso!');
-        // redirecionar ou limpar formulário, se necessário
-
-        
+        // Redirecionar ou limpar formulário, se necessário
     } catch (erro) {
         console.error('Erro ao criar projeto:', erro);
         alert('Erro ao criar projeto');

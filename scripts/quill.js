@@ -13,7 +13,7 @@ function renderizarTodasAsPaginas() {
     editorContainer.classList.add('quill-editor'); // Adiciona a classe 'quill-editor' para estilização
     editorContainer.dataset.index = index; // Atribui o índice da página ao editor para referência futura
     editorContainer.style.backgroundColor = pagina.corFundo || '#ffffff'; // Define a cor de fundo da página
-    editorContainer.style.height = '500px'; // Define a altura do editor
+    editorContainer.style.height = '400px'; // Define a altura do editor
 
     section.appendChild(editorContainer); // Adiciona o editor ao contêiner da página
     container.appendChild(section); // Adiciona a página ao contêiner geral

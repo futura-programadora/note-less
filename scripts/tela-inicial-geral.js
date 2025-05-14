@@ -101,6 +101,8 @@ async function listarProjetos() {
         divProjeto.style.backgroundImage = `url(${projeto.capa})`;
         divProjeto.style.backgroundSize = 'cover';  // Faz a imagem cobrir toda a div
         divProjeto.style.backgroundPosition = 'center';  // Centraliza a imagem
+      } else {
+        divProjeto.style.backgroundColor = '#3f917f'
       }
 
       // Exibe informações do projeto

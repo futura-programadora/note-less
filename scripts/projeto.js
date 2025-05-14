@@ -47,7 +47,7 @@ function renderizarTodasAsPaginas() {
     textarea.dataset.index = index;
     textarea.value = pagina.conteudo || '';
     textarea.style.backgroundColor = pagina.corFundo || '#ffffff';
-    textarea.style.height = '300px';
+    textarea.style.height = '400px';
 
     // 👉 Captura o textarea em foco
     textarea.addEventListener('focus', () => {
