@@ -47,16 +47,25 @@ async function criarProjeto() {
         formData.append('capa', capa);
     }
 
+    // Exibir a tela de carregamento
+    document.getElementById('loading-screen').style.display = 'flex';
+
     try {
-        const response = await fetch('http://localhost:3001/api/projetos/', {
+        const response = await fetch('https://note-less-backend.onrender.com/api/projetos/', {
             method: 'POST',
             body: formData
         });
 
+        // Esconder a tela de carregamento
+        document.getElementById('loading-screen').style.display = 'none';
+
+        
         const resultado = await response.json();
         console.log('Projeto criado:', resultado);
         alert('Projeto criado com sucesso!');
         // redirecionar ou limpar formulário, se necessário
+
+        
     } catch (erro) {
         console.error('Erro ao criar projeto:', erro);
         alert('Erro ao criar projeto');

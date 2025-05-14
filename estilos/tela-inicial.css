@@ -114,7 +114,6 @@ body {
 .adicionar-projeto {
     display: flex;
     align-items: center;
-    background-color: var(--branco);
     position: fixed;
     bottom: 150px; /* distância do fundo */
     right: 15px;   /* distância da esquerda */
@@ -124,11 +123,13 @@ body {
         font-size: 40px;
         color: var(--verde);
         text-decoration: none;
+        
 
         & i {
             border: 1px solid var(--verde);
             padding: 10px;
             border-radius: 50px;
+            background-color: var(--branco);
         }
     }
 }

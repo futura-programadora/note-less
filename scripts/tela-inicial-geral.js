@@ -22,7 +22,7 @@ function salvarAlteracoes() {
     const usuario = JSON.parse(localStorage.getItem('usuario'));
 
     //envia os dados para o back end
-    fetch('http://localhost:3001/api/usuarios/', {
+    fetch('https://note-less-backend.onrender.com/api/usuarios/', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ async function listarProjetos() {
 
   try {
     // Requisição ao backend para listar projetos
-    const response = await fetch('http://localhost:3001/api/projetos/buscar', {
+    const response = await fetch('https://note-less-backend.onrender.com/api/projetos/buscar', {
       method: 'POST',  // Método POST já que você está passando o userId no corpo da requisição
       headers: {
         'Content-Type': 'application/json',

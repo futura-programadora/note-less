@@ -14,7 +14,7 @@ function salvarAlteracoes() {
     if (novoEmail && novaSenha) {
         const usuario = JSON.parse(localStorage.getItem('usuario'));
 
-        fetch('http://localhost:3001/api/usuarios/', {
+        fetch('https://note-less-backend.onrender.com/api/usuarios/', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ async function listarProjetos() {
 
   try {
     // Busca todos os projetos do usuário
-    const response = await fetch('http://localhost:3001/api/projetos/buscar', {
+    const response = await fetch('https://note-less-backend.onrender.com/api/projetos/buscar', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

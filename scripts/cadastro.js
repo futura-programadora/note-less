@@ -12,7 +12,7 @@ async function cadastrar() {
      document.getElementById('loading-screen').style.display = 'flex';
 
     try {
-        const resposta = await fetch('http://localhost:3001/api/usuarios', {
+        const resposta = await fetch('https://note-less-backend.onrender.com/api/usuarios', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -8,37 +8,14 @@ if (!projetoId) {
   window.location.href = './tela-inicial-geral.html';
 }
 
-async function baixarPDF() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-
-  const titulo = projetoAtual.titulo || 'Projeto Sem Título';
-  doc.setFontSize(18);
-  doc.text(titulo, 10, 20);
-
-  projetoAtual.paginas.forEach((pagina, index) => {
-    if (index > 0) doc.addPage(); // adiciona nova página após a primeira
-
-    doc.setFontSize(14);
-    doc.text(`Página ${pagina.numero}`, 10, 30);
-
-    // Quebra o texto longo em múltiplas linhas
-    const linhas = doc.splitTextToSize(pagina.conteudo || '', 180);
-    doc.setFontSize(12);
-    doc.text(linhas, 10, 40);
-  });
-
-  doc.save(`${titulo.replace(/\s+/g, '_')}.pdf`);
-}
-
-
 let projetoAtual = null;
+let textareaAtivo = null; // Armazena o textarea atualmente em foco
 const debounceTimers = {};
 
+// ✅ Carrega os dados do projeto
 async function carregarProjeto() {
   try {
-    const response = await fetch(`http://localhost:3001/api/projetos/${projetoId}`);
-
+    const response = await fetch(`https://note-less-backend.onrender.com/api/projetos/${projetoId}`);
     if (!response.ok) throw new Error('Erro ao buscar projeto');
 
     const projeto = await response.json();
@@ -56,6 +33,7 @@ async function carregarProjeto() {
   }
 }
 
+// ✅ Renderiza todas as páginas na tela
 function renderizarTodasAsPaginas() {
   const container = document.querySelector('#conteudo-paginas');
   container.innerHTML = '';
@@ -69,9 +47,15 @@ function renderizarTodasAsPaginas() {
     textarea.dataset.index = index;
     textarea.value = pagina.conteudo || '';
     textarea.style.backgroundColor = pagina.corFundo || '#ffffff';
+    textarea.style.height = '300px';
 
+    // 👉 Captura o textarea em foco
+    textarea.addEventListener('focus', () => {
+      textareaAtivo = textarea;
+    });
+
+    // Salvar automaticamente após 500ms de pausa na digitação
     textarea.addEventListener('input', () => {
-      // Debounce: aguarda 500ms após o último input
       clearTimeout(debounceTimers[index]);
       debounceTimers[index] = setTimeout(() => {
         salvarAutomaticamente(index, textarea.value, textarea.style.backgroundColor);
@@ -83,15 +67,13 @@ function renderizarTodasAsPaginas() {
   });
 }
 
-//SALVAR AUTOMATICAMENTE O CONTEUDO DA PAGINA 
+// ✅ Salva automaticamente o conteúdo da página
 async function salvarAutomaticamente(index, conteudo, corFundo) {
   const pagina = projetoAtual.paginas[index];
   try {
-    const response = await fetch('http://localhost:3001/api/paginas/', {
+    const response = await fetch('https://note-less-backend.onrender.com/api/paginas/', {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         id: pagina.id,
         conteudo,
@@ -112,16 +94,14 @@ async function salvarAutomaticamente(index, conteudo, corFundo) {
   }
 }
 
-//ADICIONAR PAGINA
+// ✅ Adiciona uma nova página ao projeto
 async function adicionarPagina() {
   if (!projetoAtual) return alert('Projeto ainda não carregado.');
 
   try {
-    const response = await fetch('http://localhost:3001/api/paginas', {
+    const response = await fetch('https://note-less-backend.onrender.com/api/paginas', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ projetoId: projetoAtual.id })
     });
 
@@ -131,7 +111,6 @@ async function adicionarPagina() {
     projetoAtual.paginas.push(novaPagina);
 
     renderizarTodasAsPaginas();
-
     alert(`Nova página ${novaPagina.numero} criada com sucesso.`);
 
   } catch (erro) {
@@ -141,8 +120,63 @@ async function adicionarPagina() {
 }
 
 
+// ✅ Gera um PDF do projeto
+function baixarPDF() {
+  const containerClone = document.querySelector('#conteudo-paginas').cloneNode(true);
+
+  // Remover toolbars do Quill antes de exportar
+  containerClone.querySelectorAll('.ql-toolbar').forEach(toolbar => toolbar.remove());
+
+  // Aplicar as classes de formatação para o PDF
+  containerClone.querySelectorAll('.ql-editor').forEach(editor => {
+    editor.style.fontFamily = 'Arial, sans-serif';  // Você pode ajustar a fonte aqui
+    editor.style.fontSize = '12pt';  // Ajuste do tamanho da fonte
+    editor.style.lineHeight = '1.5';  // Ajuste do espaçamento entre linhas
+  });
+
+  // Definindo as opções para o html2pdf
+  const opt = {
+    margin: 0.5,
+    filename: `${projetoAtual.titulo.replace(/\s+/g, '_')}.pdf`,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+
+  // Gerando o PDF com o conteúdo formatado
+  html2pdf().set(opt).from(containerClone).save();
+}
+
+
+
+
+// ✅ Funções de ferramentas de edição
+function alinharTexto(alinhamento) {
+  if (!textareaAtivo) return;
+  textareaAtivo.style.textAlign = alinhamento;
+}
+
+function aplicarTitulo(tag) {
+  if (!textareaAtivo) return;
+
+  const start = textareaAtivo.selectionStart;
+  const end = textareaAtivo.selectionEnd;
+  const textoSelecionado = textareaAtivo.value.slice(start, end);
+
+  const prefixo = tag ? '#'.repeat(Number(tag.replace('h', ''))) + ' ' : '';
+  const textoComTitulo = `${prefixo}${textoSelecionado}`;
+
+  textareaAtivo.setRangeText(textoComTitulo, start, end, 'end');
+}
+
+// ✅ Outros botões
 function salvarEsair() {
   window.location.href = './tela-inicial-geral.html';
 }
 
+function salvar() {
+  alert('Salvamento automático ativado');
+}
+
+// ✅ Início
 window.onload = carregarProjeto;

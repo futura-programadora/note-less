@@ -21,6 +21,11 @@ body {
     background-color: var(--branco);
 }
 
+.escondido {
+  display: none !important;
+}
+
+
 .container {
     margin-bottom: 30%;
 }
@@ -102,6 +107,8 @@ header {
     & .adicionar-pagina {
         font-size: 30px;
         border: none;
+        width: 75px;
+        margin: auto;
 
 
         & i {
@@ -132,9 +139,14 @@ header {
 .ferramentas-container {
     display: flex;
     flex-direction: column;
-    position: relative;
+    
+    position: fixed;
+    bottom: 100px; /* distância do fundo */
+    right: 15px;   /* distância da esquerda */
+    z-index: 1000; /* garante que fique acima de outros elementos */
 
     & button {
+        border-radius: 50px;
         margin-left: auto;
         border: none;
 
@@ -149,23 +161,20 @@ header {
 }
 
 #minhas-ferramentas {
-    position: absolute;
-    top: 50px;
-    /* Ajuste conforme necessário */
+    position: fixed; /* Use fixed para manter no centro mesmo ao rolar a página */
+    top: 50%;
     left: 50%;
-    /* Centraliza horizontalmente */
-    transform: translateX(-50%);
-    /* Ajusta a posição para o centro */
+    transform: translate(-50%, -50%); /* Centraliza em ambas as direções */
+    
     background-color: var(--branco);
     border: 1px solid var(--verde);
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 10;
-    /* Para garantir que fique acima de outros elementos */
     padding: 10px;
     text-align: center;
-    /* Centraliza o texto */
 }
+
 
 
 .botao-funcao {
